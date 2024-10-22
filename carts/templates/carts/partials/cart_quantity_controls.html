@@ -1,0 +1,24 @@
+<div class="input-group quantity" style="width: 100px;">
+    <div class="input-group-btn">
+        <form 
+            hx-get="{% url 'update_cart' product.id 'decrement' %}" 
+            hx-target="#menu-cart-button" 
+            hx-swap="outerHTML">
+            <button type="submit" class="btn btn-sm btn-minus rounded-circle bg-light border">
+                <i class="fa fa-minus"></i>
+            </button>
+        </form>
+    </div>
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    <input type="text" class="form-control form-control-sm text-center border-0" value="{{ quantity }}">
+    <div class="input-group-btn">
+        <form 
+            hx-get="{% url 'update_cart' product.id 'increment' %}" 
+            hx-target="#menu-cart-button" 
+            hx-swap="outerHTML">
+            <button type="submit" class="btn btn-sm btn-plus rounded-circle bg-light border">
+                <i class="fa fa-plus"></i>
+            </button>
+        </form>
+    </div>
+</div>

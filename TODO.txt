@@ -1,0 +1,5 @@
+-adding + or -  after prees on Add to cart on Product card
+-Checkout page (payment)
+-handel customer only to create orders
+-courier Model
+-link Market > Product >  best price
