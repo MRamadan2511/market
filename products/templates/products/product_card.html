@@ -8,7 +8,7 @@
                 src='{{ product.product.image.url }}' 
                 class="img-fluid w-100 rounded-top" 
                 alt="{{ product.name }}" 
-                style=" height:200px; width:100%; object-fit:fill;">
+                style=" height:150px; width:100%; object-fit:fill;">
         </div>
 
         <div 
@@ -18,7 +18,9 @@
 
         <div class="p-2 border border-secondary border-top-0 rounded-bottom">
 
-            <h5 style="font-size: 15px">{{product}}</h5>
+            <h5 class="truncate-text" style="font-size: 12px">
+                {{product}}
+            </h5>
             {% comment %} <p>Lorem ipsum dolor sit amet consectetur </p> {% endcomment %}
 
             <div class="d-flex justify-content-between flex-lg-wrap">
@@ -40,3 +42,21 @@
     </div>
     
 </div>
+
+<style>
+    .truncate-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Limits the text to 2 lines */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 3em; /* 2 lines height */
+        transition: max-height 0.3s ease;
+    }
+    
+    .truncate-text:hover {
+        -webkit-line-clamp: unset; /* Removes the clamp on hover */
+        max-height: none; /* Allows full text on hover */
+    }   
+    
+</style>
