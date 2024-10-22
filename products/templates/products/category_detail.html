@@ -175,30 +175,10 @@
 
                                     <h1>{{ category.name }}</h1>
 
-                                    {% for profile in product_profiles %}
+                                    {% for product in product_profiles %}
                                     
-                                    <div class="col-md-6 col-lg-6 col-xl-4">                                 
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img" >
-                                                <img src='{{ profile.product.image.url }}' class="img-fluid w-100 rounded-top" alt="{{ profile.product.name }}" style=" height:300px; width:100%; object-fit:fill;">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h5>{{profile.get_display_name}}</h5>
-                                                <p>Lorem ipsum dolor sit amet consectetur </p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">{{profile.product.best_price}}EGP</p>
-                                                    
-                                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"
-                                                    hx-get="{% url 'add_to_cart' profile.id %}"
-                                                    hx-target="#menu-cart-button"
-                                                    hx-swap="outerHTML"
-                                                    >
-                                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        {% include "products/product_card.html" %}
+
                                     {% endfor %}
 
                                     

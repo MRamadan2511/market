@@ -1,13 +1,14 @@
-<div class="col-md-6 col-lg-6 col-xl-4"> 
+<div class="col-md-4 col-lg-4 col-xl-3"> 
 
     <div class="rounded position-relative fruite-item">
 
-        <div class="fruite-img" >
+        {% comment %} <div class="fruite-img" > {% endcomment %}
+        <div class="" >
             <img 
                 src='{{ product.product.image.url }}' 
                 class="img-fluid w-100 rounded-top" 
                 alt="{{ product.name }}" 
-                style=" height:300px; width:100%; object-fit:fill;">
+                style=" height:200px; width:100%; object-fit:fill;">
         </div>
 
         <div 
@@ -15,13 +16,13 @@
             style="top: 10px; left: 10px;">{{ product.product.category }}
         </div>
 
-        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+        <div class="p-2 border border-secondary border-top-0 rounded-bottom">
 
             <h5 style="font-size: 15px">{{product}}</h5>
             {% comment %} <p>Lorem ipsum dolor sit amet consectetur </p> {% endcomment %}
 
             <div class="d-flex justify-content-between flex-lg-wrap">
-                <p  class="text-dark fs-5 fw-bold mb-0" style="font-size: 14px" >{{product.get_final_price}}EGP</p>
+                <p  class="text-dark  fw-bold mb-0 btn border rounded-pill" style="font-size: 15px" >{{product.get_final_price}} EGP</p>
                 
                 <a  
                     href="#" class="btn border border-secondary rounded-pill px-3 text-primary"
@@ -29,7 +30,7 @@
                     hx-target="#menu-cart-button"
                     hx-swap="outerHTML"
                     >
-                    <i class="fa fa-shopping-bag me-2 text-primary"></i>Add to cart
+                    <i class="fa fa-shopping-bag me-2 text-primary"></i>+
                 </a>
                 
             </div>
