@@ -3,7 +3,7 @@
 -handel customer only to create orders
 -courier Model
 -link Market > Product >  best price
--after checkout make >>> orders
+-after checkout make >>> orders (Done)
 -check if user have address in checkout page or add new address
 -check login user before checkout page (login or create new user)
 -location filter

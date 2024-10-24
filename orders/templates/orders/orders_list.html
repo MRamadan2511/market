@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- Cart Page Start -->
+<!-- Orrder Page Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="table-responsive">
@@ -17,13 +17,17 @@
                     <th scope="col">Handle</th> {% endcomment %}
                     </tr>
                 </thead>
-                <tbody  id="cart-items">
+                <tbody  id="">
 
                     {% for order in order_list %}
 
                     <tr id="">
                         <th scope="row">
-                            <p class="mb-0 mt-4 ">{{ order.id }}</p>
+
+                            <a href="{% url 'order_detail'  order.id%}">
+                                <p class="mb-0 mt-4 ">{{ order.id }}</p>
+                             </a>
+                            
                         </th>
 
                         <td>

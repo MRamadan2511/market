@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Order, OrderItem
 from carts.cart import Cart
 
@@ -39,3 +39,15 @@ def order_list(request):
     }
 
     return render(request, 'orders/orders_list.html', context)
+
+
+
+def order_detail(request, order_id):
+    
+    order = get_object_or_404(Order, pk=order_id)
+    
+    context = {
+        'order': order,
+    }
+
+    return render(request, 'orders/order_detail.html', context)
