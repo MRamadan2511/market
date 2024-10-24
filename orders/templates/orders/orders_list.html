@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Cart Page Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="table-responsive">
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Order Price</th>
+                    <th scope="col">Created At</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Delivered At</th>
+                    {% comment %} <th scope="col">Total</th>
+                    <th scope="col">Handle</th> {% endcomment %}
+                    </tr>
+                </thead>
+                <tbody  id="cart-items">
+
+                    {% for order in order_list %}
+
+                    <tr id="">
+                        <th scope="row">
+                            <p class="mb-0 mt-4 ">{{ order.id }}</p>
+                        </th>
+
+                        <td>
+                            <p class="mb-0 mt-4">{{ order.total_price }} EGP</p>
+                        </td>
+                            
+                        <td>
+                            <p class="mb-0 mt-4">{{ order.created_at }}</p>
+                        </td>
+
+                        <td>
+                            <p class="mb-0 mt-4">{{ order.status }}</p>
+                        </td>
+
+
+                        <td>
+                           
+                        </td>
+                    </tr>
+                    
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        {% endblock %}

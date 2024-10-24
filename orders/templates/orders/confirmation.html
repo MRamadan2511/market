@@ -4,5 +4,12 @@
     <h2>Thank you for your order!</h2>
     <p>Your order number is {{ order.id }}.</p>
     <p>Total: {{ order.total_price }} EGP</p>
+
+    <a href="{% url 'orders_list' %}"
+        class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4">
+        Show All orders
+
+    </a>
+
 </div>
 {% endblock %}

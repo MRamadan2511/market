@@ -21,7 +21,8 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=20, default="New")
-
+    
+    # delivered_at = models.ForeignKey(orderlogs, on_delete=models.CASCADE)
     def __str__(self):
         return f"Order #{self.id} by {self.customer.email}"
 

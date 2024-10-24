@@ -26,4 +26,16 @@ def place_order(request):
         # Redirect to a confirmation page or show a success message
         return render(request, 'orders/confirmation.html', {'order': order})
 
-    return redirect('checkout')
+    # return redirect('checkout')
+
+
+
+def order_list(request):
+    customer = request.user
+    order_list = Order.objects.filter(customer=customer)
+
+    context = {
+        'order_list': order_list,
+    }
+
+    return render(request, 'orders/orders_list.html', context)
