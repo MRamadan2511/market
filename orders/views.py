@@ -46,8 +46,32 @@ def order_detail(request, order_id):
     
     order = get_object_or_404(Order, pk=order_id)
     
+    statuses = [
+        'New', 
+        'Accepted on Market', 
+        'Picked', 
+        'In Route', 
+        'Delivered'
+    ]
+
+    # Failure statuses
+    failure_statuses = ['Canceled', 'Failed', 'Delayed']
+    print(order.status)
+    # Find current status position
+    current_status = order.status.status # Assuming 'status' is a field in Order model
+    if current_status in statuses:
+        print(order.status)
+        status_index = statuses.index(current_status)
+        progress_percentage = (status_index + 1) * (100 // len(statuses))
+    else:
+        progress_percentage = 100 if current_status in failure_statuses else 0
+
+
     context = {
         'order': order,
+        'current_status': current_status,
+        'progress_percentage': progress_percentage,
+        'failure_statuses': failure_statuses,
     }
 
     return render(request, 'orders/order_detail.html', context)

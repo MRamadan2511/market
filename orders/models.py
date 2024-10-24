@@ -20,8 +20,8 @@ class Order(models.Model):
     payment_method = models.CharField(max_length=50, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=20, default="New")
-    
+    status = models.ForeignKey(OrderStatus, on_delete=models.DO_NOTHING, default=1)
+
     # delivered_at = models.ForeignKey(orderlogs, on_delete=models.CASCADE)
     def __str__(self):
         return f"Order #{self.id} by {self.customer.email}"

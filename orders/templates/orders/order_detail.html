@@ -1,10 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container-fluid  py-5">
-</div> 
+<div class="container-fluid py-5"></div> 
 
-   <h2 class="text-center">Order: {{ order.id}}</h2>
-   <p class="text-center">Order Amount: {{ order.total_price}}</p>
+<div class="container mt-5">
+    <!-- Progress Bar -->
+    <div class="progress">
+        <div 
+            class="progress-bar {% if current_status in failure_statuses %} bg-danger {% else %} bg-success {% endif %}" 
+            role="progressbar" 
+            style="width: {{ progress_percentage }}%;" 
+            aria-valuenow="{{ progress_percentage }}" 
+            aria-valuemin="0" 
+            aria-valuemax="100">
+            {{ current_status }}
+        </div>
+    </div>
+    
+    <!-- Status Labels -->
+    <ul class="list-inline mt-3 text-center">
+        <li class="list-inline-item {% if current_status == "New" %} fw-bold btn btn-primary text-white {% endif %}">New</li>
+        <li class="list-inline-item {% if current_status == "Accepted on Market" %} fw-bold btn btn-primary text-white {% endif %}">Accepted on Market</li>
+        <li class="list-inline-item {% if current_status == "Picked" %} fw-bold btn btn-primary text-white {% endif %}">Picked</li>
+        <li class="list-inline-item {% if current_status == "In Route" %} fw-bold btn btn-primary text-white{% endif %}">In Route</li>
+        <li class="list-inline-item {% if current_status == "Delivered" %} fw-bold btn btn-primary text-white {% endif %}">Delivered</li>
+        
+    </ul>
+</div>
 
-{% endblock content%}
+<!-- Order Information -->
+<h2 class="text-center">Order: {{ order.id }}</h2>
+<p class="text-center ">Order Amount: {{ order.total_price }}</p>
+<p class="text-center fw-bold">Order Status: {{ order.status }}</p>
+
+{% endblock content %}
